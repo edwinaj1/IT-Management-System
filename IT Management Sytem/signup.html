@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Profile • IT Dept - CampusTech HelpDesk</title>
+  <style>
+    * {
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background: #f0f4f8;
+      color: #333;
+      min-height: 100vh;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    header.topbar {
+      width: 100%;
+      background: #4a90e2;
+      padding: 12px 20px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+      margin-bottom: 30px;
+    }
+    header.topbar .container {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: white;
+      font-weight: 700;
+      font-size: 1.3rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+    .brand img.logo {
+      height: 40px;
+      width: 40px;
+      object-fit: contain;
+      border-radius: 6px;
+      background: white;
+      padding: 4px;
+    }
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+    nav a.nav-link {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      text-transform: capitalize;
+      padding: 6px 12px;
+      border-radius: 8px;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    nav a.nav-link:hover {
+      background: #50e3c2;
+      color: #004d40;
+    }
+
+    main.container {
+      width: 100%;
+      max-width: 450px;
+    }
+    .card {
+      background: white;
+      padding: 30px 25px;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #2980b9;
+      font-weight: 700;
+      margin-bottom: 25px;
+      text-transform: capitalize;
+      text-align: center;
+      font-size: 2rem;
+    }
+    form label.field {
+      display: block;
+      margin-bottom: 18px;
+      font-weight: 600;
+      color: #34495e;
+      font-size: 1rem;
+    }
+    form label.field span {
+      display: block;
+      margin-bottom: 8px;
+      text-transform: capitalize;
+    }
+    form input[type="text"],
+    form input[type="email"],
+    form input[type="password"],
+    form input[type="file"] {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1.5px solid #50e3c2;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+    form input[type="text"]:focus,
+    form input[type="email"]:focus,
+    form input[type="password"]:focus,
+    form input[type="file"]:focus {
+      border-color: #2980b9;
+      outline: none;
+      box-shadow: 0 0 5px #2980b9;
+    }
+    .pw-field .pw-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .pw-field .pw-row input {
+      flex-grow: 1;
+    }
+    button.eye-btn {
+      background: #50e3c2;
+      border: none;
+      padding: 10px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1.2rem;
+      color: #004d40;
+      transition: background 0.3s ease;
+      user-select: none;
+    }
+    button.eye-btn:hover {
+      background: #38b59f;
+    }
+    .form-actions {
+      margin-top: 30px;
+      text-align: center;
+    }
+    button.btn.primary {
+      background: #50e3c2;
+      color: #004d40;
+      padding: 14px 30px;
+      border: none;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(80,227,194,0.5);
+      transition: background 0.3s ease;
+      text-transform: capitalize;
+    }
+    button.btn.primary:hover {
+      background: #38b59f;
+      box-shadow: 0 5px 20px rgba(56,181,159,0.7);
+    }
+    #profile-msg {
+      margin-top: 18px;
+      font-size: 0.9rem;
+      color: #7f8c8d;
+      min-height: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar small">
+    <div class="container">
+      <div class="brand">
+        <img src="images/logo.png" class="logo" alt="logo" />
+        <span class="brand-text">IT Portal</span>
+      </div>
+      <nav>
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+        <a href="php/logout.php" class="nav-link">Logout</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container form-page">
+    <div class="card form-card">
+      <h2>My Profile</h2>
+
+      <form id="profile-form" action="php/profile_update.php" method="post" enctype="multipart/form-data">
+        <label class="field" for="fullname">
+          <span>Display Name</span>
+          <input id="fullname" name="fullname" required placeholder="Your Name" type="text" />
+        </label>
+
+        <label class="field" for="email">
+          <span>Email</span>
+          <input id="email" name="email" type="email" required placeholder="you@company.com" />
+        </label>
+
+        <label class="field" for="photo">
+          <span>Profile Photo</span>
+          <input id="photo" name="photo" type="file" accept="image/*" />
+        </label>
+
+        <label class="field pw-field" for="new-pw">
+          <span>New Password (Leave blank to keep current)</span>
+          <div class="pw-row">
+            <input id="new-pw" type="password" name="new_password" placeholder="New Password" />
+            <button type="button" class="eye-btn" data-toggle="new-pw" aria-label="Toggle Password Visibility">👁️</button>
+          </div>
+        </label>
+
+        <div class="form-actions">
+          <button class="btn primary" type="submit">Save Profile</button>
+        </div>
+
+        <div id="profile-msg" class="small muted"></div>
+      </form>
+    </div>
+  </main>
+</body>
+</html>

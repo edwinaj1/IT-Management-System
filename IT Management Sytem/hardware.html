@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hardware Inventory - CampusTech HelpDesk</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background: #f0f4f8;
+      color: #333;
+      min-height: 100vh;
+      padding: 30px 20px;
+    }
+    header.topbar {
+      background: #4a90e2;
+      padding: 12px 20px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+      margin-bottom: 30px;
+    }
+    header.topbar .container {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: white;
+      font-weight: 700;
+      font-size: 1.3rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+    .brand img.logo {
+      height: 40px;
+      width: 40px;
+      object-fit: contain;
+      border-radius: 6px;
+      background: white;
+      padding: 4px;
+    }
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+    nav a.nav-link {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      text-transform: capitalize;
+      padding: 6px 12px;
+      border-radius: 8px;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    nav a.nav-link:hover {
+      background: #50e3c2;
+      color: #004d40;
+    }
+    nav a.nav-link.active {
+      background: #50e3c2;
+      color: #004d40;
+      font-weight: 700;
+      box-shadow: 0 4px 10px rgba(80,227,194,0.6);
+    }
+    main.container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .card {
+      background: white;
+      padding: 25px 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+    h3 {
+      color: #2980b9;
+      margin-bottom: 8px;
+      font-weight: 700;
+      font-size: 1.8rem;
+      text-transform: capitalize;
+    }
+    p.small.muted {
+      color: #7f8c8d;
+      font-size: 0.9rem;
+      margin-bottom: 25px;
+    }
+    table.table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+    table.table thead tr {
+      background: #50e3c2;
+      color: #004d40;
+      font-weight: 700;
+    }
+    table.table th,
+    table.table td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+      font-size: 0.95rem;
+    }
+    table.table tbody tr:hover {
+      background: #e0f7f5;
+    }
+    .form-inline {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .form-inline input {
+      flex: 1 1 150px;
+      padding: 10px 12px;
+      border: 1.5px solid #50e3c2;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+    .form-inline input:focus {
+      border-color: #2980b9;
+      outline: none;
+      box-shadow: 0 0 6px #2980b9;
+    }
+    .btn.small {
+      padding: 10px 18px;
+      background: #50e3c2;
+      color: #004d40;
+      border: none;
+      border-radius: 30px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      flex-shrink: 0;
+    }
+    .btn.small:hover {
+      background: #38b59f;
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <div class="brand">
+        <img src="images/logo.png" class="logo" alt="logo" />
+        <span class="brand-text">IT Portal</span>
+      </div>
+      <nav>
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+        <a href="hardware.html" class="nav-link active">Hardware</a>
+        <a href="tickets.html" class="nav-link">Help Desk</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="card">
+      <h3>Hardware Inventory</h3>
+      <p class="small muted">Add, edit and track servers, printers and lab PCs.</p>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Tag</th>
+            <th>Type</th>
+            <th>Location</th>
+            <th>Status</th>
+            <th>Last Maintenance</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="hardware-list">
+          <!-- rows filled by js -->
+        </tbody>
+      </table>
+
+      <div class="form-inline">
+        <input id="asset-tag" placeholder="Asset Tag" />
+        <input id="asset-type" placeholder="Type (server/printer/pc)" />
+        <input id="asset-loc" placeholder="Location" />
+        <button id="add-hardware" class="btn small">Add Item</button>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

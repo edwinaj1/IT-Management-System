@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Submit Ticket - CampusTech HelpDesk</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background: #f0f4f8;
+      color: #333;
+      min-height: 100vh;
+      padding: 30px 20px;
+    }
+    header.topbar {
+      background: #4a90e2;
+      padding: 12px 20px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+      margin-bottom: 30px;
+    }
+    header.topbar .container {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: white;
+      font-weight: 700;
+      font-size: 1.3rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+    .brand img.logo {
+      height: 40px;
+      width: 40px;
+      object-fit: contain;
+      border-radius: 6px;
+      background: white;
+      padding: 4px;
+    }
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+    nav a.nav-link {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      text-transform: capitalize;
+      padding: 6px 12px;
+      border-radius: 8px;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    nav a.nav-link:hover {
+      background: #50e3c2;
+      color: #004d40;
+    }
+    main.container {
+      max-width: 450px;
+      margin: 0 auto;
+    }
+    .card {
+      background: white;
+      padding: 30px 25px;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #2980b9;
+      font-weight: 700;
+      margin-bottom: 25px;
+      text-transform: capitalize;
+      text-align: center;
+      font-size: 2rem;
+    }
+    form label.field {
+      display: block;
+      margin-bottom: 18px;
+      font-weight: 600;
+      color: #34495e;
+      font-size: 1rem;
+    }
+    form label.field span {
+      display: block;
+      margin-bottom: 8px;
+      text-transform: capitalize;
+    }
+    form input[type="text"],
+    form textarea,
+    form select {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1.5px solid #50e3c2;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+      font-family: inherit;
+    }
+    form input[type="text"]:focus,
+    form textarea:focus,
+    form select:focus {
+      border-color: #2980b9;
+      outline: none;
+      box-shadow: 0 0 5px #2980b9;
+      resize: vertical;
+    }
+    form textarea {
+      resize: vertical;
+      font-family: inherit;
+    }
+    .form-actions {
+      margin-top: 30px;
+      text-align: center;
+    }
+    button.btn.primary {
+      background: #50e3c2;
+      color: #004d40;
+      padding: 14px 30px;
+      border: none;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(80,227,194,0.5);
+      transition: background 0.3s ease;
+      text-transform: capitalize;
+    }
+    button.btn.primary:hover {
+      background: #38b59f;
+      box-shadow: 0 5px 20px rgba(56,181,159,0.7);
+    }
+    a.btn.link {
+      margin-left: 15px;
+      padding: 14px 25px;
+      border-radius: 30px;
+      background: transparent;
+      border: 2px solid #50e3c2;
+      color: #50e3c2;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.3s ease, color 0.3s ease;
+      text-transform: capitalize;
+    }
+    a.btn.link:hover {
+      background: #50e3c2;
+      color: #004d40;
+    }
+    .small.muted {
+      font-size: 0.9rem;
+      color: #7f8c8d;
+      margin-top: 12px;
+      min-height: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar small">
+    <div class="container">
+      <div class="brand">
+        <img src="images/logo.png" class="logo" alt="logo" />
+        <span class="brand-text">IT Portal</span>
+      </div>
+      <nav>
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+        <a href="tickets.html" class="nav-link">Help Desk</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container form-page">
+    <div class="card form-card">
+      <h2>Create Support Ticket</h2>
+      <form id="ticket-form" action="php/submit_ticket.php" method="post">
+        <label class="field">
+          <span>Title</span>
+          <input name="title" required placeholder="Short Title" type="text" />
+        </label>
+
+        <label class="field">
+          <span>Description</span>
+          <textarea name="description" rows="5" required placeholder="Explain the problem"></textarea>
+        </label>
+
+        <label class="field">
+          <span>Category</span>
+          <select name="category">
+            <option>hardware</option>
+            <option>e-learning</option>
+            <option>email</option>
+            <option>network</option>
+            <option>other</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span>Priority</span>
+          <select name="priority">
+            <option value="low">low</option>
+            <option value="medium" selected>medium</option>
+            <option value="high">high</option>
+          </select>
+        </label>
+
+        <div class="form-actions">
+          <button class="btn primary" type="submit">Send Ticket</button>
+          <a class="btn link" href="tickets.html">Back</a>
+        </div>
+
+        <div id="ticket-msg" class="small muted"></div>
+      </form>
+    </div>
+  </main>
+</body>
+</html>

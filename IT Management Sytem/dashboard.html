@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IT Department Dashboard</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: #f4f6f9;
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: #004aad;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    header h1 {
+      margin-bottom: 10px;
+      font-weight: 700;
+      font-size: 2rem;
+      letter-spacing: 1.2px;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      padding: 6px 12px;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #50e3c2;
+      color: #004d40;
+      text-decoration: none;
+    }
+
+    main.container {
+      flex-grow: 1;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      padding: 30px 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* make links fill the card and look normal */
+    .card-link {
+      display: block;
+      background: white;
+      padding: 25px 20px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      color: inherit; /* keep text color */
+      text-decoration: none; /* no underline */
+      height: 100%; /* fill the card space */
+    }
+
+    .card-link:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+      color: #2980b9; /* text color on hover */
+    }
+
+    .card-link h2 {
+      font-size: 1.5rem;
+      color: #2980b9;
+      margin-bottom: 12px;
+      font-weight: 700;
+      text-transform: capitalize;
+    }
+
+    .card-link p {
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #555;
+    }
+
+    footer {
+      background: #004aad;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.7px;
+      margin-top: auto;
+      box-shadow: 0 -3px 8px rgba(0, 0, 0, 0.15);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>IT Department Dashboard</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="login.html">Login</a>
+      <a href="signup.html">Sign Up</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <a href="managing-software.html" class="card-link">
+      <h2>Managing Software</h2>
+      <p>Managing institutional software such as ERP systems, e-learning platforms (Blackboard, Moodle), and email systems.</p>
+    </a>
+    <a href="maintaining-hardware.html" class="card-link">
+      <h2>Maintaining Hardware</h2>
+      <p>Maintaining hardware like servers, printers, and lab computers.</p>
+    </a>
+    <a href="resolving-issues.html" class="card-link">
+      <h2>Resolving Issues</h2>
+      <p>Resolving user issues through the IT Help Desk.</p>
+    </a>
+    <a href="ensuring-cybersecurity.html" class="card-link">
+      <h2>Ensuring Cybersecurity</h2>
+      <p>Ensuring cybersecurity through firewalls, antivirus, and network monitoring.</p>
+    </a>
+    <a href="training-documentation.html" class="card-link">
+      <h2>Training & Documentation</h2>
+      <p>Providing training and documentation to staff and students on the use of digital systems.</p>
+    </a>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 IT Department. All rights reserved.</p>
+  </footer>
+</body>
+</html>

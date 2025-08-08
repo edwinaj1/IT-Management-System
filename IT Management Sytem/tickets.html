@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>help desk • tickets</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <div class="brand"><img src="images/logo.png" class="logo" alt="logo"><span class="brand-text">it portal</span></div>
+      <nav>
+        <a href="dashboard.html" class="nav-link">dashboard</a>
+        <a href="tickets.html" class="nav-link active">help desk</a>
+        <a href="training.html" class="nav-link">training</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="card">
+      <div class="row-between">
+        <h3>help desk</h3>
+        <a class="btn small" href="submit-ticket.html">create ticket</a>
+      </div>
+
+      <table class="table">
+        <thead>
+          <tr><th>id</th><th>title</th><th>user</th><th>category</th><th>priority</th><th>status</th><th>actions</th></tr>
+        </thead>
+        <tbody id="tickets-list">
+          <!-- js will fill -->
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
